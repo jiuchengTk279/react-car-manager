@@ -16,8 +16,8 @@ export default class Admin extends Component {
         <Col span="20" className="main">
           <Header>Header</Header>
           <Row className="content">
-            <Home></Home>
-            {/* {this.props.children} */}
+            {/* <Home></Home> */}
+            {this.props.children}
           </Row>
           <Footer>Footer</Footer>
         </Col>
