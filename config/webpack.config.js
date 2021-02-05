@@ -137,23 +137,40 @@ module.exports = function (webpackEnv) {
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
         },
       },
+      { loader: require.resolve('less-loader')}
     ].filter(Boolean);
     if (preProcessor) {
-      loaders.push(
-        {
-          loader: require.resolve('resolve-url-loader'),
-          options: {
-            sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
-            root: paths.appSrc,
-          },
-        },
-        {
+      if (preProcessor === 'less-loader') {
+        loaders.push({
           loader: require.resolve(preProcessor),
           options: {
-            sourceMap: true,
+            sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
+            modifyVars: {
+              '@primary-color': '#f9c700',　　//修改antd主题色
+            },
+            // javascriptEnabled: true,
+            // lessOptions: {
+            //   javascriptEnabled: true,
+            // }
+          }
+        })
+      } else {
+        loaders.push(
+          {
+            loader: require.resolve('resolve-url-loader'),
+            options: {
+              sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
+              root: paths.appSrc,
+            },
           },
-        }
-      );
+          {
+            loader: require.resolve(preProcessor),
+            options: {
+              sourceMap: true,
+            },
+          }
+        );
+      }
     }
     return loaders;
   };
@@ -559,6 +576,13 @@ module.exports = function (webpackEnv) {
                   sourceMap: isEnvProduction
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
+                  // modifyVars: {
+                  //     '@primary-color': '#f9c700',　　//修改antd主题色
+                  // },
+                  // javascriptEnabled: true,
+                  // lessOptions: {
+                  //   javascriptEnabled: true,
+                  // }
                 },
                 'less-loader'
               ),
@@ -579,10 +603,17 @@ module.exports = function (webpackEnv) {
                   modules: {
                     getLocalIdent: getCSSModuleLocalIdent,
                   },
-                  modifyVars: {
-                    '@primary-color': '#13c2c2',　　//修改antd主题色
-                  },
-                  javascriptEnabled: true,
+                  // modifyVars: {
+                  //   '@primary-color': '#13c2c2',　　//修改antd主题色
+                  // },
+                  // javascriptEnabled: true,
+                  // options: {
+                  //   sourceMap: true,
+                  //   modifyVars: {
+                  //     '@primary-color': '#13c2c2',　　//修改antd主题色
+                  //   },
+                  //   javascriptEnabled: true,
+                  // }
                 },
                 'less-loader'
               ),
