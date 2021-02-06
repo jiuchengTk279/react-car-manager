@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useForm } from 'react'
 import { Card, Form, Input, Button, message, Icon, Checkbox } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
@@ -7,13 +7,13 @@ const FormItem = Form.Item
 export default class FormLogin extends Component {
   
   handleSubmit = () => {
-    const [form] = Form.useForm()
+    // const [form] = Form.useForm()
     // let userInfo = this.props.form.getFieldsValue()
-    form.validateFields((err, values) => {
-      if (!err) {
-        message.success(`${userInfo.userName}，恭喜通过表单验证`)
-      }
-    })
+    // form.validateFields((err, values) => {
+    //   if (!err) {
+    //     message.success(`${userInfo.userName}，恭喜通过表单验证`)
+    //   }
+    // })
   }
 
   render () {
