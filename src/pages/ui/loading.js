@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Card, Button, Spin, Icon, Alert } from 'antd'
 import { LoadingOutlined  } from '@ant-design/icons'
+import './ui.less'
 
 export default class Loadings extends Component {
 
