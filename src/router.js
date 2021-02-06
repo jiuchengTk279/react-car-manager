@@ -5,6 +5,7 @@ import Login from './pages/login'
 import Admin from './admin'
 import Buttons from './pages/ui/buttons'
 import Modals from './pages/ui/modals'
+import Loading from './pages/ui/loading'
 import NoMatch from './pages/nomatch'
 
 export default class IRouter extends Component {
@@ -19,6 +20,7 @@ export default class IRouter extends Component {
               <Switch>
                 <Route path="/admin/ui/buttons" component={Buttons}></Route>
                 <Route path="/admin/ui/modals" component={Modals}></Route>
+                <Route path="/admin/ui/loadings" component={Loading}></Route>
                 <Route component={NoMatch}></Route>
               </Switch>
             </Admin>
