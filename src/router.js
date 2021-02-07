@@ -19,6 +19,10 @@ import City from './pages/city'
 import Order from './pages/order'
 import User from './pages/user'
 import BikeMap from './pages/map/bikeMap'
+import BarEcharts from './pages/echarts/bar'
+import PieEcharts from './pages/echarts/pie'
+import LineEcharts from './pages/echarts/line'
+import Rich from './pages/rich'
 import Common from './common'
 import Detail from './pages/order/detail'
 import NoMatch from './pages/nomatch'
@@ -49,6 +53,10 @@ export default class IRouter extends Component {
                 <Route path="/admin/order" component={Order}></Route>
                 <Route path="/admin/user" component={User}></Route>
                 <Route path="/admin/bikeMap" component={BikeMap}></Route>
+                <Route path="/admin/charts/bar" component={BarEcharts}></Route>
+                <Route path="/admin/charts/pie" component={PieEcharts}></Route>
+                <Route path="/admin/charts/line" component={LineEcharts}></Route>
+                <Route path="/admin/rich" component={Rich}></Route>
                 <Route component={NoMatch}></Route>
               </Switch>
             </Admin>
